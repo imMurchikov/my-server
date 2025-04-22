@@ -1,0 +1,13 @@
+version: "3.7"
+services:
+  nightscout-libre-link:
+    image: timoschlueter/nightscout-librelink-up
+    container_name: nightscout-libre-link
+    environment:
+      LINK_UP_USERNAME: email
+      LINK_UP_PASSWORD: password
+      LINK_UP_TIME_INTERVAL: "1"
+      LINK_UP_REGION: RU
+      NIGHTSCOUT_URL: nightscout.example.com
+      NIGHTSCOUT_API_TOKEN: sha1-hash-token # You might also use an online tool to generate your hash, e.g. https://codebeautify.org/sha1-hash-generator
+      LOG_LEVEL: info

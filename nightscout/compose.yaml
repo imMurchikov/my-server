@@ -1,0 +1,31 @@
+version: "3"
+services:
+  mongo:
+    image: mongo:4.4
+    container_name: nightscout-mongo
+    restart: unless-stopped
+    volumes:
+      - mongo-data:/data/db
+  nightscout:
+    image: nightscout/cgm-remote-monitor
+    container_name: nightscout
+    restart: unless-stopped
+    ports:
+      - 1337:1337
+    environment:
+      - MONGO_CONNECTION=mongodb://mongo:27017/nightscout
+      - API_SECRET=changehere
+      - PORT=1337
+      - TZ=Europe/Moscow
+      - DISPLAY_UNITS=mmol/L
+      - CUSTOM_TITLE="Nightscout"
+      - TIME_FORMAT=24
+      - THEME=colors
+      - LANGUAGE=ru
+      - BASAL_RENDER=default
+      - SHOW_PLUGINS=pump openaps
+      - EDIT_MODE=off
+      - ENABLE="careportal boluscalc food iob cob bwp cage sage iage bage basal
+        bolus bridge googlehome speech cors dbsize"
+    depends_on:
+      - mongo
