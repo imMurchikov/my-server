@@ -1,12 +1,5 @@
 # my-server
-<pre> my-server/
-├── minecraft/
-│   └── compose.yaml
-├── nginx-proxy-manager/
-│   └── compose.yaml
-├── nightscout-librelink-up/
-│   └── compose.yaml
-├── nightscout/
-│   └── compose.yaml
-└── README.md
- </pre>
+
+<a>
+  <img src="./assets/readme.png" style="border-radius: 50px;" />
+</a>

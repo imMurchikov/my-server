@@ -1,0 +1,11 @@
+services:
+  translite:
+    image: git.bloat.cat/gospodin/translite:master
+    container_name: translite
+    restart: unless-stopped
+    ports:
+      - "127.0.0.1:3033:8080" # Specify `127.0.0.1:8080:8080` instead if using a reverse proxy
+    security_opt:
+      - no-new-privileges:true
+    cap_drop:
+      - ALL
